@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Generador de ideas para productos gráficos</title>
+  <style>
+    body {
+      background-color: #333;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+      margin: 0;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-bottom: 20px;
+    }
+    #random-text {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Generador de ideas para productos gráficos</h1>
+  <button id="generate-button">¡Sorpréndeme!</button>
+  <div id="random-text"></div>
+
+  <script>
+    const strings = [
+      "Cartas comestibles educativas sobre el cuerpo humano para niños",
+  "Mapa coloreable interactivo de la historia para jóvenes",
+  "Postales coleccionables lúdicas sobre inventos para adultos mayores",
+  "Camisetas intercambiables con diseños de arte clásico para estudiantes",
+  "Tatuajes temporales personalizables de constelaciones para jóvenes",
+  "Stickers educativos sobre la naturaleza para niños",
+  "Afiches informativos sobre la importancia del reciclaje para profesionales",
+  "Calendarios interactivos de actividades para adultos mayores",
+  "Agendas plegables con tips de creatividad para amas de casa",
+  "Fanzines educativos sobre ciencia ficción para jóvenes",
+  "Estuches de celulares personalizados con arte abstracto para estudiantes",
+  "Mugs con diseños de lugares históricos para adultos mayores",
+  "Totebags con ilustraciones de cuentos clásicos para niños",
+  "Camisetas educativas de especies en peligro de extinción para niños",
+  "Tatuajes temporales interactivos que revelan mensajes secretos para jóvenes",
+  "Agendas plegables con consejos de bienestar para profesionales",
+  "Mugs con diseños de constelaciones para adultos mayores",
+  "Estuches de celulares personalizados con arte callejero para estudiantes",
+  "Calendarios coloreables con ilustraciones botánicas para amas de casa",
+  "Fanzines informativos sobre tecnología futurista para jóvenes",
+  "Totebags con diseños de arquitectura icónica para estudiantes",
+  "Cartas educativas comestibles y educativas para niños",
+  "Mapa coloreable de la ciudad para jóvenes",
+  "Postales intercambiables lúdicas para adultos",
+  "Kit de papelería ecológica para estudiantes conscientes del medio ambiente",
+  "Juego de mesa educativo sobre diseño gráfico para estudiantes de diseño o aficionados al arte",
+  "Calendario interactivo con consejos de diseño gráfico para diseñadores principiantes",
+  "Libro de diseño con realidad aumentada para estudiantes de diseño gráfico",
+  "Plataforma web para colaborar en la creación de un mural digital para comunidades creativas",
+  "Kit de iniciación al lettering para aficionados al diseño y la caligrafía",
+  "Servicio de diseño de avatares personalizados para redes sociales y juegos en línea",
+  "Stickers coleccionables de lugares históricos para adultos mayores",
+  "Postales personalizables de viajes intergalácticos para jóvenes",
+  "Camisetas educativas de especies en peligro de extinción para niños",
+  "Tatuajes temporales interactivos que revelan mensajes secretos para jóvenes",
+  "Agendas plegables con consejos de bienestar para profesionales",
+  "Mugs con diseños de constelaciones para adultos mayores",
+  "Estuches de celulares personalizados con arte callejero para estudiantes",
+  "Calendarios coloreables con ilustraciones botánicas para amas de casa",
+  "Fanzines informativos sobre tecnología futurista para jóvenes",
+  "Totebags con diseños de arquitectura icónica para estudiantes",
+  "Cartas educativas comestibles y educativas para niños",
+  "Mapa coloreable de la ciudad para jóvenes",
+  "Postales intercambiables lúdicas para adultos",
+  "Kit de papelería ecológica para estudiantes conscientes del medio ambiente",
+  "Juego de mesa educativo sobre diseño gráfico para estudiantes de diseño o aficionados al arte",
+  "Calendario interactivo con consejos de diseño gráfico para diseñadores principiantes",
+  "Kit de iniciación al lettering para aficionados al diseño y la caligrafía",
+  "Stickers coleccionables de lugares históricos para adultos mayores",
+  "Postales personalizables de viajes intergalácticos para jóvenes",
+  "Camisetas educativas de especies en peligro de extinción para niños",
+  "Tatuajes temporales interactivos que revelan mensajes secretos para jóvenes",
+  "Agendas plegables con consejos de bienestar para profesionales",
+  "Mugs con diseños de constelaciones para adultos mayores",
+  "Estuches de celulares personalizados con arte callejero para estudiantes",
+  "Calendarios coloreables con ilustraciones botánicas para amas de casa",
+  "Fanzines informativos sobre tecnología futurista para jóvenes",
+  "Totebags con diseños de arquitectura icónica para estudiantes",
+
+"Pines coleccionables con diseños de especies en peligro de extinción para amantes de la naturaleza",
+  "Álbumes de cromos educativos sobre monumentos históricos para jóvenes",
+  "Libros interactivos con realidad aumentada sobre el cuerpo humano para niños",
+  "Cómics educativos sobre ciencia ficción para jóvenes",
+  "Empaques personalizables de regalos con diseños de arte clásico para estudiantes",
+  "Pines intercambiables con frases motivacionales para jóvenes",
+  "Álbumes de stickers con ilustraciones botánicas para amantes de la jardinería",
+  "Libros pop-up sobre historia del arte con animaciones para adultos mayores",
+  "Cómics educativos sobre inventores famosos para aficionados a la historia",
+  "Empaques con diseños de constelaciones para regalos especiales",
+  "Pines coleccionables de personajes históricos para adultos mayores",
+  "Álbumes de postales interactivas con datos curiosos sobre planetas para entusiastas del espacio",
+  "Libros de actividades con realidad aumentada sobre ecología para concienciar sobre el medio ambiente",
+  "Cómics educativos sobre tecnología futurista para jóvenes",
+  "Empaques personalizables con diseños de lugares históricos para regalos turísticos",
+  "Pines intercambiables con frases inspiradoras para personas que buscan motivación",
+  "Álbumes de cromos con ilustraciones de animales en peligro de extinción para concienciar",
+  "Libros ilustrados con realidad aumentada sobre biología marina para amantes del océano",
+  "Cómics educativos sobre curiosidades arqueológicas para aficionados a la historia antigua",
+  "Empaques con diseños de paisajes urbanos para regalos urbanitas",
+  "Pines coleccionables de obras de arte famosas para amantes del arte",
+  "Álbumes de stickers con ilustraciones de fenómenos naturales para aficionados a la meteorología",
+  "Libros pop-up sobre tecnología futurista con animaciones para mentes inquisitivas",
+  "Cómics educativos sobre curiosidades científicas para entusiastas de la ciencia",
+  "Empaques personalizables con fotos de paisajes naturales para regalos ecológicos",
+  "Pines intercambiables con datos sobre inventores famosos para entusiastas de la inventiva",
+  "Álbumes de postales interactivas con ejercicios de relajación para personas que buscan tranquilidad",
+  "Libros de actividades con realidad aumentada sobre historia local para curiosos de la ciudad",
+  "Cómics educativos sobre historia del arte para aficionados a la cultura",
+  "Empaques con diseños de especies de aves para regalos ornitológicos",
+  "Pines coleccionables de fenómenos astronómicos para aficionados a la astronomía",
+  "Álbumes de cromos con ilustraciones de monumentos históricos para amantes de la arquitectura",
+  "Libros ilustrados con realidad aumentada sobre curiosidades espaciales para aficionados a la astronomía",
+  "Cómics educativos sobre historia antigua para aficionados a la historia antigua",
+  "Empaques personalizables con diseños de citas literarias para regalos literarios",
+  "Pines intercambiables con datos sobre artistas famosos para amantes del arte",
+  "Álbumes de stickers con ilustraciones de fenómenos atmosféricos para aficionados a la meteorología",
+  "Libros pop-up sobre curiosidades lingüísticas para aficionados a los idiomas",
+  "Cómics educativos sobre ciencias naturales para entusiastas de la biología",
+  "Empaques con diseños de instrumentos musicales para regalos musicales",
+  "Pines coleccionables con diseños de patrones tribales para amantes de la cultura",
+  "Álbumes de postales interactivas con datos sobre animales en peligro de extinción para concienciar",
+  "Libros de actividades con realidad aumentada sobre curiosidades tecnológicas para aficionados a la innovación",
+  "Cómics educativos sobre fenómenos astronómicos para aficionados a la astronomía",
+  "Empaques personalizables con ilustraciones de paisajes montañosos para regalos montañeros",
+
+"Rompecabezas con diseños de obras de arte famosas para entusiastas del arte",
+  "Marcapáginas magnéticos con ilustraciones de paisajes naturales para lectores",
+  "Tarjetas de felicitación con mensajes positivos para ocasiones especiales",
+  "Vinilos decorativos con diseños de constelaciones para aficionados a la astronomía",
+  "Kits de manualidades con materiales para crear joyería personalizada",
+  "Llaveros personalizados con fotos impresas para regalos memorables",
+  "Pósters educativos con información sobre especies en peligro de extinción",
+  "Libretas con cubiertas de tela y estampados artísticos para escritores",
+  "Cajas de almacenamiento con diseños de patrones tribales para organización en el hogar",
+  "Juegos de mesa con temáticas históricas para entusiastas de la historia",
+  "Peluches con formas de personajes de cómics educativos para niños",
+  "Puzzles 3D de monumentos famosos para entusiastas de los viajes",
+  "Collares con dijes inspirados en la naturaleza para amantes de la botánica",
+  "Cuadernos de dibujo con papel reciclado para artistas conscientes del medio ambiente",
+  "Pegatinas luminiscentes con diseños de constelaciones para decoración",
+  "Kits de scrapbooking con materiales para crear álbumes personalizados",
+  "Marcadores de libros magnéticos con formas de animales para lectores jóvenes",
+  "Tazas con diseños de mapas antiguos para amantes de la historia",
+  "Tablas de cortar con ilustraciones de recetas para amantes de la cocina",
+  "Kit de bordado con diseños de plantas para principiantes en la costura",
+  "Juegos de cartas con ilustraciones de criaturas fantásticas para jugadores de rol",
+  "Joyeros con diseños de arte geométrico para guardar accesorios",
+  "Puzzles personalizados con fotos familiares para regalos",
+  "Bolsas de tela con diseños de frases motivacionales para llevar alimentos",
+  "Juegos de construcción con piezas inspiradas en la arquitectura mundial",
+  "Banderines decorativos con mensajes inspiradores para habitaciones",
+  "Cajas de té con ilustraciones de plantas medicinales para amantes del té",
+  "Marcadores de libros con forma de lápices para niños lectores",
+  "Láminas decorativas con ilustraciones de fenómenos naturales para paredes",
+  "Set de sellos personalizados con diseños de animales para manualidades",
+  "Juegos de mesa educativos sobre geografía para niños",
+  "Cubiertas de teléfono con diseños de arte urbano para proteger dispositivos",
+  "Kit de costura con materiales para crear peluches personalizados",
+  "Tatuajes temporales coleccionables con diseños de personajes históricos",
+  "Pegatinas para uñas con diseños de arte moderno para manicuras creativas",
+  "Juegos de construcción con piezas de madera para crear esculturas",
+  "Posters educativos sobre biología marina para concienciar sobre la vida marina",
+  "Libretas con cubiertas de cuero y grabados artísticos",
+  "Cubiertas de tablet con diseños de ilustraciones fantásticas",
+  "Kit de modelado con arcilla para crear miniaturas personalizadas",
+  "Relojes de pared con diseños de mapas antiguos para decorar",
+  "Bolsas de tela con diseños de paisajes urbanos para llevar compras",
+
+  "Kit de origami con papel especial para crear figuras tridimensionales",
+  "Plantillas de estarcido reutilizables con diseños de animales para decorar paredes",
+  "Caja de luz personalizable con letras y símbolos para mensajes creativos",
+  "Set de sellos de goma con motivos botánicos para proyectos de manualidades",
+  "Juego de construcción con piezas magnéticas para crear estructuras dinámicas",
+  "Kit de bordado con diseños de constelaciones para decorar prendas de vestir",
+  "Calcomanías decorativas para teclado de computadora con motivos artísticos",
+  "Plantillas de dibujo con formas geométricas para crear patrones artísticos",
+  "Juego de mesa de estrategia basado en el arte de la guerra medieval",
+  "Móvil decorativo con formas abstractas para colgar en habitaciones",
+  "Sello de cera personalizado con diseño de monograma para cartas",
+  "Kit de fabricación de velas con aromas inspirados en la naturaleza",
+  "Estampas adhesivas para suelos con diseños de mosaicos para renovar espacios",
+  "Caja de música con melodías clásicas y diseño vintage para coleccionistas",
+  "Set de tarjetas de agradecimiento con ilustraciones",
+  "Mural decorativo adhesivo con diseño de jungla para habitaciones infantiles",
+  "Juego de mesa de preguntas y respuestas sobre historia del arte para aficionados",
+  "Kit de arte botánico con acuarelas y papel especial para crear ilustraciones naturales",
+  "Máscaras de papel recortables con diseños de personajes históricos para juegos de rol",
+  "Kit de encuadernación con materiales para crear libros artesanales",
+  "Caja de recuerdos personalizada con compartimentos y etiquetas para organizar memorias",
+  "Kit de pintura de piedras con colores vivos para crear mandalas decorativos",
+  "Plantilla para pintar camisetas con diseño de arte urbano",
+  "Diario de viaje ilustrado con espacio para fotos y relatos de aventuras",
+  "Puzzle de madera con diseño de laberinto para desarrollar la destreza mental",
+  "Kit de creación de máscaras de carnaval con plumas y adornos brillantes",
+  "Set de posavasos con diseños de artistas locales para proteger superficies",
+  "Luminaria de papel con diseño de constelaciones para crear ambiente nocturno",
+  "Kit de construcción de maquetas de edificios históricos para aprender sobre arquitectura",
+  "Puzzle de metal desmontable con forma de esculturas famosas",
+  "Plantillas para pintar murales temporales",
+  "Juego de mesa de palabras cruzadas con temática de literatura clásica",
+  "Kit de bordado con diseño de animales salvajes para crear prendas únicas",
+  "Caja de manualidades con materiales reciclados para fomentar la creatividad sostenible",
+  "Set de tarjetas coleccionables con ilustraciones de criaturas mitológicas para intercambiar",
+  "Kit de fabricación de marionetas con materiales reutilizables para montar obras de teatro",
+  "Plantillas para decorar objetos con patrones geométricos",
+  "Juego de mesa de estrategia basado en la exploración espacial para aficionados a la ciencia ficción",
+"Parches bordados con ilustración de especie en peligro de extinción",
+"Parches bordados con frases en idioma extranjero para aprender mientras se usa."
+
+    ];
+
+    const button = document.getElementById('generate-button');
+    const randomText = document.getElementById('random-text');
+
+    button.addEventListener('click', () => {
+      const randomIndex = Math.floor(Math.random() * strings.length);
+      randomText.textContent = strings[randomIndex];
+    });
+  </script>
+</body>
+</html>
